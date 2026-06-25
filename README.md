@@ -1,25 +1,56 @@
-# Exoplanet ISRO Southpole
+# LunaNav AI — Explainable AI Mission Planning Platform for Lunar South Pole Exploration
 
-This repository is dedicated to the project focused on exoplanet research, with potential integrations or inspirations from ISRO's missions and South Pole observations.
+LunaNav AI is an advanced, AI-driven mission planning platform designed to detect subsurface ice and optimize rover traversal in the permanently shadowed regions (PSRs) of the lunar South Pole. Built for the ISRO Chandrayaan-2 data hackathon, this project moves beyond simple rule-based heuristics to provide a robust, explainable, and multi-objective planning system.
 
-## Project Plan
+## Project Vision
 
-### Phase 1: Research and Ideation
-- Gather data on known exoplanets from public astronomical datasets (e.g., NASA Exoplanet Archive).
-- Study ISRO's upcoming and past space missions for relevant instrumentation or methodologies.
-- Explore the significance of lunar south pole or Earth's south pole observatories in exoplanet transit detection.
+The discovery and characterization of water-ice in the lunar South Polar Region is a high-priority scientific objective for sustained human presence on the Moon. While traditional approaches rely on hardcoded thresholds (e.g., CPR > 1, DOP < 0.13), **LunaNav AI** fuses multi-modal data (DFSAR, OHRC, DEM) using machine learning to generate high-confidence ice probability maps, rank landing sites, and plan energy-aware rover traverses.
 
-### Phase 2: Data Processing & Analysis
-- Clean and preprocess the gathered astronomical data.
-- Develop models or visualizations to identify exoplanet transit signatures.
-- Cross-reference with potential observational capabilities of Indian observatories or space telescopes.
+### Core Pipeline
 
-### Phase 3: Development & Implementation
-- Build a prototype analysis pipeline or simulation model.
-- Document the methodology, algorithms, and findings.
-- Create interactive dashboards or reports to present the results.
+1. **Preprocessing & Feature Fusion**: Ingests and aligns Chandrayaan-2 Dual Frequency Synthetic Aperture Radar (DFSAR) and Orbiter High Resolution Camera (OHRC) datasets.
+2. **AI Ice Probability Mapping**: Fuses Radar Features, OHRC Texture, Slope, Roughness, and Shadow Duration into a predictive ML model for subsurface ice detection.
+3. **Terrain Risk Assessment**: Evaluates crater morphology, boulder distribution, and surface roughness.
+4. **Landing Site Ranking**: Ranks top landing sites based on a multi-objective scoring function (Safety, Distance to Ice, Illumination, Communication, Scientific Value).
+5. **Energy-Aware Rover Path Planning**: An optimized path planner (advanced A*) factoring in slope, hazards, shadow duration, and battery consumption.
+6. **Subsurface Ice Volume Estimation**: Utilizes radar backscatter models to estimate ice volume within the top 5 meters.
+7. **Explainable AI (XAI)**: Provides confidence scores and reasoning for every ice detection (e.g., "Confidence 94% - High CPR, Low DOP, Persistent Shadow").
+8. **Interactive Mission Dashboard**: A Streamlit application for visualization of probability heatmaps, landing sites, and rover routes.
 
-### Phase 4: Review & Refinement
-- Review the findings against established astronomical data.
-- Optimize code and analysis scripts.
-- Finalize documentation for presentation or open-source contribution.
+## Proposed System Architecture
+
+```text
+lunanav-ai/
+├── data/                  # Raw, processed, and cached datasets
+├── models/                # ML models (ice_detector, terrain_classifier, etc.)
+├── src/                   # Core Python modules
+│   ├── preprocessing.py
+│   ├── dfsar_processing.py
+│   ├── feature_engineering.py
+│   ├── ice_probability.py
+│   ├── terrain_analysis.py
+│   ├── landing_optimizer.py
+│   ├── rover_navigation.py
+│   ├── volume_estimation.py
+│   ├── explainability.py
+│   └── visualization.py
+├── dashboard/             # Streamlit interactive dashboard
+├── notebooks/             # Exploratory Data Analysis (EDA)
+└── tests/                 # Scientific and engineering validation tests
+```
+
+## Datasets (Pending Finale Shortlist)
+- Chandrayaan-2 Dual Frequency Synthetic Aperture Radar (DFSAR)
+- Chandrayaan-2 Orbiter High Resolution Camera (OHRC)
+- Lunar Digital Elevation Models (DEM)
+
+## Tech Stack
+- **Geospatial & Image Processing**: GDAL, rasterio, QGIS, ENVI
+- **Data Science & ML**: Python, NumPy, SciPy, scikit-learn
+- **Visualization & Dashboard**: Streamlit, Matplotlib
+
+## Evaluation & Validation
+Our approach will be rigorously evaluated against:
+- **Scientific Validation**: Alignment of predicted ice regions with permanently shadowed areas and expected radar signatures.
+- **Engineering Validation**: Ensuring rover paths avoid hazardous slopes and landing sites meet strict terrain constraints.
+- **Performance Validation**: Efficient processing of crater datasets within operational timeframes.
