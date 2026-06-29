@@ -50,11 +50,12 @@ def test_traverseiq_plan_path():
     start = (0, 0)
     goal = (4, 0)
     
-    path = tiq.plan_path(start, goal, hazards, slope)
+    path, energy = tiq.plan_path(start, goal, hazards, slope)
     
     assert path is not None
     assert path[0] == start
     assert path[-1] == goal
+    assert energy >= 0.0
     
     # Ensure path avoids hazards
     for (y, x) in path:

@@ -1,0 +1,55 @@
+backend-1  | INFO:     Started server process [1]
+backend-1  | INFO:     Waiting for application startup.
+backend-1  | INFO:     Application startup complete.
+backend-1  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+backend-1  | INFO:lmip_core.mission.safeland:Evaluating terrain hazards for landing sites...
+backend-1  | INFO:lmip_core.mission.safeland:Ranking landing sites based on science and safety...
+backend-1  | INFO:lmip_core.mission.safeland:Identified 3 valid landing sites.
+backend-1  | INFO:lmip_core.mission.traverseiq:Planning traverse path from (0, 0) to (9, 8)...
+backend-1  | WARNING:lmip_core.mission.traverseiq:No valid path found to the goal.
+backend-1  | INFO:     192.168.65.1:25910 - "POST /run-mission HTTP/1.1" 200 OK
+backend-1  | INFO:lmip_core.mission.safeland:Evaluating terrain hazards for landing sites...
+backend-1  | INFO:lmip_core.mission.safeland:Ranking landing sites based on science and safety...
+backend-1  | INFO:lmip_core.mission.safeland:Identified 3 valid landing sites.
+backend-1  | INFO:lmip_core.mission.traverseiq:Planning traverse path from (2, 3) to (32, 21)...
+backend-1  | INFO:lmip_core.mission.traverseiq:Path found with 35 steps.
+backend-1  | INFO:     172.18.0.4:56554 - "POST /run-mission HTTP/1.1" 200 OK
+backend-1  | INFO:     Shutting down
+backend-1  | INFO:     Waiting for application shutdown.
+backend-1  | INFO:     Application shutdown complete.
+backend-1  | INFO:     Finished server process [1]
+backend-1  | INFO:     Started server process [1]
+backend-1  | INFO:     Waiting for application startup.
+backend-1  | INFO:     Application startup complete.
+backend-1  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+backend-1  | INFO:lmip_core.mission.safeland:Evaluating terrain hazards for landing sites...
+backend-1  | INFO:lmip_core.mission.safeland:Ranking landing sites based on science and safety...
+backend-1  | INFO:lmip_core.mission.safeland:Identified 3 valid landing sites.
+backend-1  | ERROR:main:Mission failed: 'NoneType' object is not subscriptable
+backend-1  | INFO:     192.168.65.1:47865 - "POST /run-mission HTTP/1.1" 500 Internal Server Error
+backend-1  | INFO:     Shutting down
+backend-1  | INFO:     Waiting for application shutdown.
+backend-1  | INFO:     Application shutdown complete.
+backend-1  | INFO:     Finished server process [1]
+backend-1  | INFO:     Started server process [1]
+backend-1  | INFO:     Waiting for application startup.
+backend-1  | INFO:     Application startup complete.
+backend-1  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+backend-1  | INFO:lmip_core.mission.safeland:Evaluating terrain hazards for landing sites...
+backend-1  | INFO:lmip_core.mission.safeland:Ranking landing sites based on science and safety...
+backend-1  | INFO:lmip_core.mission.safeland:Identified 3 valid landing sites.
+backend-1  | ERROR:main:Mission failed: 'NoneType' object is not subscriptable
+backend-1  | INFO:     192.168.65.1:36043 - "POST /run-mission HTTP/1.1" 500 Internal Server Error
+backend-1  | INFO:     Shutting down
+backend-1  | INFO:     Waiting for application shutdown.
+backend-1  | INFO:     Application shutdown complete.
+backend-1  | INFO:     Finished server process [1]
+backend-1  | INFO:     Started server process [1]
+backend-1  | INFO:     Waiting for application startup.
+backend-1  | INFO:     Application startup complete.
+backend-1  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+backend-1  | INFO:lmip_core.mission.safeland:Evaluating terrain hazards for landing sites...
+backend-1  | INFO:lmip_core.mission.safeland:Ranking landing sites based on science and safety...
+backend-1  | INFO:lmip_core.mission.safeland:Identified 3 valid landing sites.
+backend-1  | ERROR:main:Mission failed: 'NoneType' object is not subscriptable
+backend-1  | INFO:     192.168.65.1:58486 - "POST /run-mission HTTP/1.1" 500 Internal Server Error
