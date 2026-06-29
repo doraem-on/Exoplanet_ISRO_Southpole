@@ -19,7 +19,6 @@ services:
     volumes:
       - ./backend:/app/backend
       - ./lmip_core:/app/lmip_core
-      - ./test_polarfusion.py:/app/test_polarfusion.py
     environment:
       - DATABASE_URL=postgresql://lmip:lmip_password@database:5432/lmip_db
     depends_on:
