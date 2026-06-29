@@ -1,0 +1,39 @@
+services:
+  database:
+    image: postgis/postgis:15-3.3
+    environment:
+      - POSTGRES_USER=lmip
+      - POSTGRES_PASSWORD=lmip_password
+      - POSTGRES_DB=lmip_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app/backend
+      - ./lmip_core:/app/lmip_core
+      - ./test_polarfusion.py:/app/test_polarfusion.py
+    environment:
+      - DATABASE_URL=postgresql://lmip:lmip_password@database:5432/lmip_db
+    depends_on:
+      - database
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "8501:8501"
+    environment:
+      - BACKEND_URL=http://backend:8000
+    depends_on:
+      - backend
+
+volumes:
+  db_data:

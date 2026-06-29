@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+sqlalchemy
+geoalchemy2
+psycopg2-binary
+pytest
+rasterio
+geopandas
+shapely
+scikit-learn
+xgboost
+shap
