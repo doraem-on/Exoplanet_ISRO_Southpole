@@ -5,12 +5,56 @@ import plotly.graph_objects as go
 import pandas as pd
 
 st.set_page_config(
-    page_title="LMIP Mission Dashboard",
-    page_icon="🌕",
+    page_title="ISRO LMIP Mission Dashboard",
+    page_icon="🇮🇳",
     layout="wide",
 )
 
-st.title("🌕 Lunar Mission Intelligence Platform (LMIP)")
+st.markdown("""
+<style>
+    /* ISRO / India Theme Colors */
+    :root {
+        --isro-saffron: #FF9933;
+        --isro-white: #FFFFFF;
+        --isro-green: #138808;
+        --isro-navy: #000080;
+    }
+    
+    /* Indian Flag Gradient Line at the top */
+    .stApp::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(to right, var(--isro-saffron) 33%, var(--isro-white) 33%, var(--isro-white) 66%, var(--isro-green) 66%);
+        z-index: 9999;
+    }
+    
+    h1, h2, h3 {
+        color: var(--isro-saffron) !important;
+    }
+    
+    .stButton>button {
+        background-color: var(--isro-navy) !important;
+        color: var(--isro-white) !important;
+        border: 1px solid var(--isro-saffron) !important;
+    }
+    .stButton>button:hover {
+        background-color: var(--isro-saffron) !important;
+        color: var(--isro-navy) !important;
+        border-color: var(--isro-white) !important;
+    }
+    
+    .stTabs [aria-selected="true"] {
+        color: var(--isro-saffron) !important;
+        border-bottom-color: var(--isro-saffron) !important;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+st.title("ISRO Lunar Mission Intelligence Platform (LMIP) 🌕")
 st.subheader("AI-Assisted Decision Support System for Autonomous Lunar Polar Exploration")
 st.markdown("---")
 
@@ -29,7 +73,7 @@ show_shadows = st.sidebar.checkbox("Show Permanent Shadows", value=True)
 show_comms = st.sidebar.checkbox("Show Comms Deadzones", value=False)
 show_hazards = st.sidebar.checkbox("Show Steep Hazards", value=True)
 
-if st.sidebar.button("🚀 Run Mission Simulation", type="primary"):
+if st.sidebar.button("Execute Mission Simulation", type="primary"):
     with st.spinner("Executing Mission AI Pipeline (Physics -> IceSense -> SafeLand -> TSP TraverseIQ)..."):
         try:
             response = requests.post(f"{BACKEND_URL}/run-mission", json={
@@ -68,7 +112,7 @@ if 'mission_data' in st.session_state:
     y, x = np.mgrid[0:grid_size, 0:grid_size]
     dem = ((x - center)**2 + (y - center)**2) * 0.1
     
-    tab1, tab2, tab3 = st.tabs(["🌍 3D Digital Twin", "🔬 Advanced Physics & Science", "📊 Mission Telemetry"])
+    tab1, tab2, tab3 = st.tabs(["3D Digital Twin", "Advanced Physics & Science", "Mission Telemetry"])
     
     with tab1:
         st.markdown("### 3D Lunar Digital Twin")
@@ -201,4 +245,4 @@ if 'mission_data' in st.session_state:
                 st.write(f"{i+2}. **Target:** ({target['x']}, {target['y']})")
                 
 else:
-    st.info("👈 Set mission constraints in the sidebar and deploy!")
+    st.info("Set mission constraints in the sidebar and deploy!")
